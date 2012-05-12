@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Bitcoin Widget</title>
+	<meta charset="utf-8" />
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="jquery.bitcoinwidget.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+		$('#demo_button').BitcoinButton({ value: 1.25 });
+	});
+	</script>
+
+</head>
+<body>
+	<h1>jQuery Bitcoin Widget</h1>
+	
+	<h2>Description</h2>
+	<p>
+		This is a demonstration page that presents the functioning of a simple jQuery plugin rendering a button with the amount of Bitcoins.
+		<br/><br/>
+		Do you want to contribute to this plugin?  <a href="https://raw.github.com/lgr/jquery-bitcoin/">It’s on GitHub</a>
+	</p>
+	
+	<div id="demo_button"></div>
+	<br/><br/><br/>
+</body>
+</html>
