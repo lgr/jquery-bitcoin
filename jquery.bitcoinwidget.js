@@ -9,12 +9,20 @@
 			    'max-width': 100
 			} // Additional CSS for the counter element
 		},
-		text: 'Bitcoin', // Button text
-		_button_element: null, // Button element
-		_counter_element: null, // Counter element
+		button_label: 'bitcoin', // Button label
+		button_sublabel: '', // Button sublabel text
+		lang: 'en',
 		button: true, // Display button ?
 		counter: true, // Display counter ?
-		amount: '0.00' // Amount that is displayed by the counter
+		bitcoin_icon: true, // Display bitcoin icon ?
+		amount: '0.00', // Amount that is displayed by the counter
+		_button_element: null, // Button element
+        _counter_element: null, // Counter element
+        _trans_button_sublabel: {
+            en: 'ACCEPTED HERE',
+            pl: 'AKCEPTUJEMY',
+            es: 'SE ACEPTAN'
+        }
  	};
 	var methods = {
  		init : function( options ) {
@@ -28,17 +36,32 @@
     				$.extend(true, settings, options);
     			$this.empty().addClass('jq-bitcoin-widget');
     			if (settings.button){
-    			    settings._button_element = $('<div></div>').addClass('button element');
+    			    var label = $('<span></span>').addClass('label')
+    			                                  .text(settings.button_label);
+    			    if(!settings.button_sublabel)
+    			        settings.button_sublabel = settings.
+    			                         _trans_button_sublabel[settings.lang];
+    			    var sublabel = $('<span></span>').addClass('sublabel')
+    			                               .text(settings.button_sublabel);
+    			    settings._button_element = $('<div></div>')
+    			                                  .addClass('button element');
     			    settings._button_element.css(settings.css.button);
-    			    settings._button_element.text(settings.text);
+    			    if(settings.bitcoin_icon){
+    			        var icon = $('<div></div>').addClass('icon');
+    			        settings._button_element.append(icon);
+    			    }
+    			    settings._button_element.append(label).append(sublabel);
     			    $this.append(settings._button_element);
     			}
     			if (settings.counter){
     			    var val = $('<span></span>');
-                    settings._counter_element = $('<div></div>').addClass('counter element');
+    			    var u = $('<u></u>');
+    			    var i = $('<i></i>');
+                    settings._counter_element = $('<div></div>')
+                                                .addClass('counter element');
                     settings._counter_element.css(settings.css.counter);
                     val.append(settings.amount);
-                    settings._counter_element.append(val);
+                    settings._counter_element.append(i).append(u).append(val);
                     $this.append(settings._counter_element);
                 }
     			$this.data('BitcoinButton', settings);
@@ -58,11 +81,13 @@
 	};
 	$.fn.BitcoinButton = function( method ) {
 		if ( methods[method] ) {
-			return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+			return methods[method].apply( this, Array.prototype
+			                                     .slice.call( arguments, 1 ));
 		} else if ( typeof method === 'object' || ! method ) {
 			return methods.init.apply( this, arguments );
 		} else {
-			$.error( 'Method ' +  method + ' does not exist on jQuery.BitcoinButton' );
+			$.error( 'Method ' +  method 
+			         + ' does not exist on jQuery.BitcoinButton' );
 		}
 	};
 })( jQuery );
