@@ -1,6 +1,6 @@
 # jQuery Bitcoin Widget #
 
-A simple jQuery plugin rendering a button with the amount of Bitcoins. Inspired by the Twitter tweat button and the mockups of ![paraipan](https://github.com/paraipan).
+A simple jQuery plugin rendering a button with the amount of Bitcoins. Inspired by the Twitter tweat button and the mockups of paraipan (https://github.com/paraipan).
 
 
 Copyright 2012 Lukasz Gradzki
@@ -13,7 +13,7 @@ Dual licensed under the MIT or GPL Version 2 licenses
 * Include required libs and CSS files:
 
 ```html
-<link href="res/jquery.bitcoinwidget.css" rel="stylesheet" type="text/css"/>
+<link href="res/jquery.bitcoinwidget.min.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.bitcoinwidget.min.js"></script>
 
