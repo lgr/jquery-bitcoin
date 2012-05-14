@@ -1,30 +1,30 @@
 (function( $ ){
 	var element_name = "BitcoinButton";
 	var default_settings = {
-	    _button_element: null, // Button element
-        _counter_element: null, // Counter element
+	    _button_element: null,
+        _counter_element: null,
         _trans_button_sublabel: {
             en: 'ACCEPTED HERE',
             pl: 'AKCEPTUJEMY',
             es: 'SE ACEPTAN'
         },
-	    amount: '0.00', // Amount that is displayed by the counter
-	    button: true, // Display button ?
-        button_label: 'bitcoin', // Button label
-        button_sublabel: '', // Button sublabel text
-        bitcoin_icon: true, // Display bitcoin icon ?
-        counter: true, // Display counter ?
+	    amount: '0.00',
+	    button: true,
+        button_label: 'bitcoin',
+        button_sublabel: '',
+        bitcoin_icon: true,
+        counter: true,
         counter_align: 'right',
 		css: {
 			button: {
-			    'max-width': 300 
-			}, // Additional CSS for the button
+			    'min-width': 80 
+			},
 			counter: {
 			    'min-width': 30
-			} // Additional CSS for the counter element
+			}
 		},
 		lang: 'en',
-		onclick: function() {} // callback on the button click
+		onclick: function() {}
  	};
 	var methods = {
 	    _update_amount: function(element, val) {

@@ -3,7 +3,6 @@
 <head>
 	<title>jQuery Bitcoin Widget</title>
 	<meta charset="utf-8" />
-	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 	<link href="res/jquery.bitcoinwidget.css" rel="stylesheet" type="text/css"/>
 	<style type="text/css">
         
@@ -32,7 +31,6 @@
                 
     </style>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="jquery.bitcoinwidget.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function () {
@@ -46,7 +44,8 @@
 		    }
 		});
 		$('#demo_button_2').BitcoinButton({ 
-            amount: 2000.00, 
+            amount: 2000.00,
+            lang: 'es',
             onclick: function(){
                 var take = parseFloat((0.05 + (10.0-0.05)*Math.random()).toFixed(2));
                 var amount = $('#demo_button_2').BitcoinButton('getAmount');
