@@ -1,3 +1,10 @@
+/*
+ * jQuery Bitcoin Widget
+ * 
+ * Copyright 2012 Lukasz Gradzki
+ * https://github.com/lgr
+ */
+
 (function( $ ){
 	var element_name = "BitcoinButton";
 	var default_settings = {
