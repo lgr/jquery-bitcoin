@@ -11,4 +11,4 @@ Dual licensed under the MIT or GPL Version 2 licenses
 
 ## Sample Screenshot ##
 
-![Demo](lgr.github.com/jquery-bitcoin/demo.png)
+![Demo](https://github.com/lgr/jquery-bitcoin/raw/master/demo.png)
