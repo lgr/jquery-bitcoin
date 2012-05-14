@@ -36,7 +36,27 @@
 	<script type="text/javascript" src="jquery.bitcoinwidget.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function () {
-		$('#demo_button').BitcoinButton({ value: 1.25 });
+		$('#demo_button_1').BitcoinButton({ 
+		    amount: 1.25, 
+		    onclick: function(){
+		        var add = parseFloat((0.5 + (10.0-0.5)*Math.random()).toFixed(2));
+		        var amount = $('#demo_button_1').BitcoinButton('getAmount');
+		        alert("The amount of bitcoins is increased by " + add + " BTC.");
+                $('#demo_button_1').BitcoinButton('setAmount', amount + add);
+		    }
+		});
+		$('#demo_button_2').BitcoinButton({ 
+            amount: 2000.00, 
+            onclick: function(){
+                var take = parseFloat((0.05 + (10.0-0.05)*Math.random()).toFixed(2));
+                var amount = $('#demo_button_2').BitcoinButton('getAmount');
+                if((amount - take) < 0)
+                    take = amount;
+                alert("The amount of bitcoins is decreased by " + take + " BTC.");
+                $('#demo_button_2').BitcoinButton('setAmount', amount - take);
+            },
+            counter_align: 'left'
+        });
 	});
 	</script>
 
@@ -50,8 +70,8 @@
 		<br/><br/>
 		Do you want to contribute to this plugin?  <a href="https://raw.github.com/lgr/jquery-bitcoin/">It’s on GitHub</a>
 	</p>
-	
-	<div id="demo_button"></div>
-	<br/><br/><br/>
+	<div id="demo_button_1" style="float:left"></div>
+	<div id="demo_button_2" style="float:right"></div>
+    <br/><br/><br/><br/><br/>
 </body>
 </html>

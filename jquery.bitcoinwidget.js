@@ -1,30 +1,37 @@
 (function( $ ){
 	var element_name = "BitcoinButton";
 	var default_settings = {
-		css: {
-			button: {
-			    'max-width': 300 
-			}, // Additional CSS for the button
-			counter: {
-			    'max-width': 100
-			} // Additional CSS for the counter element
-		},
-		button_label: 'bitcoin', // Button label
-		button_sublabel: '', // Button sublabel text
-		lang: 'en',
-		button: true, // Display button ?
-		counter: true, // Display counter ?
-		bitcoin_icon: true, // Display bitcoin icon ?
-		amount: '0.00', // Amount that is displayed by the counter
-		_button_element: null, // Button element
+	    _button_element: null, // Button element
         _counter_element: null, // Counter element
         _trans_button_sublabel: {
             en: 'ACCEPTED HERE',
             pl: 'AKCEPTUJEMY',
             es: 'SE ACEPTAN'
-        }
+        },
+	    amount: '0.00', // Amount that is displayed by the counter
+	    button: true, // Display button ?
+        button_label: 'bitcoin', // Button label
+        button_sublabel: '', // Button sublabel text
+        bitcoin_icon: true, // Display bitcoin icon ?
+        counter: true, // Display counter ?
+        counter_align: 'right',
+		css: {
+			button: {
+			    'max-width': 300 
+			}, // Additional CSS for the button
+			counter: {
+			    'min-width': 30
+			} // Additional CSS for the counter element
+		},
+		lang: 'en',
+		onclick: function() {} // callback on the button click
  	};
 	var methods = {
+	    _update_amount: function(element, val) {
+	        if(parseFloat(val) && !isNaN(val))
+                val += ' BTC';
+            element.empty().append(val);
+	    },
  		init : function( options ) {
  			this.each(function(){
  				var settings = jQuery.extend(true, {}, default_settings);
@@ -44,8 +51,11 @@
     			    var sublabel = $('<span></span>').addClass('sublabel')
     			                               .text(settings.button_sublabel);
     			    settings._button_element = $('<div></div>')
-    			                                  .addClass('button element');
-    			    settings._button_element.css(settings.css.button);
+    			                               .addClass('button element')
+    			                               .css(settings.css.button)
+    			                               .click(function(){
+    			                                   settings.onclick.call(this);
+    			                               });
     			    if(settings.bitcoin_icon){
     			        var icon = $('<div></div>').addClass('icon');
     			        settings._button_element.append(icon);
@@ -60,15 +70,44 @@
                     settings._counter_element = $('<div></div>')
                                                 .addClass('counter element');
                     settings._counter_element.css(settings.css.counter);
-                    val.append(settings.amount);
-                    settings._counter_element.append(i).append(u).append(val);
-                    $this.append(settings._counter_element);
+                    $(this).BitcoinButton('_update_amount', 
+                                           val, settings.amount);
+                    switch(settings.counter_align){
+                        case 'right':
+                            settings._counter_element.append(i)
+                                                     .append(u).append(val);
+                            $this.append(settings._counter_element);
+                            break;
+                        case 'left':
+                            settings._counter_element.addClass('left')
+                                    .append(val).append(u).append(i);
+                            $this.prepend(settings._counter_element);
+                            break;
+                        default:
+                            jQuery.error("'" + settings.counter_align 
+                                         + "' isn't valid align option.");
+                    }
                 }
     			$this.data('BitcoinButton', settings);
        		});
        		return this;
        	},
-       	destroy : function( ) {
+       	getAmount : function() {
+            var $this = $(this),
+                settings = $this.data('BitcoinButton');
+            return settings.amount;
+        },
+        setAmount : function( new_amount ) {
+            var $this = $(this),
+                settings = $this.data('BitcoinButton');
+            settings.amount = new_amount;
+            if(settings.counter)
+                $(this).BitcoinButton('_update_amount', 
+                                       settings._counter_element.find('span'),
+                                       new_amount);
+            $this.data('BitcoinButton', settings);
+        },
+       	destroy : function() {
        		return this.each(function(){
        			var $this = $(this);
        			$.removeData($this,'BitcoinButton');

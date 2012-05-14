@@ -21,6 +21,7 @@
 
 
 /* 
+Alternatively, use Ubuntu fonts from Google:
 @import url('http://fonts.googleapis.com/css?family=Ubuntu&subset=Latin&.css');
 @import url('http://fonts.googleapis.com/css?family=Ubuntu:italic&subset=Latin&.css');
 @import url('http://fonts.googleapis.com/css?family=Ubuntu:bolditalic&subset=Latin&.css'); 
@@ -97,7 +98,7 @@
     text-align:center;
     min-height:18px;
     min-width:15px;
-    margin-left: 5px;
+    margin: 0 5px;
 }
 
 .jq-bitcoin-widget .counter,
@@ -127,6 +128,21 @@
 .jq-bitcoin-widget .counter u {
     margin-left:-3px;
     border-right-color:#fff;
+}
+
+.jq-bitcoin-widget .left u,
+.jq-bitcoin-widget .left i{
+    left:auto;
+    right:0;
+    margin:-4px -4px 0 0;
+    border:4px transparent solid;
+    border-left-color:#aaa;
+    border-right:0;
+}
+
+.jq-bitcoin-widget .left i{
+    margin-right:-3px;
+    border-left-color:#fff;
 }
 
 .jq-bitcoin-widget .element{
