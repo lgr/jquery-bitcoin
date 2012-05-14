@@ -1,11 +1,16 @@
 # jQuery Bitcoin Widget #
 
-A simple jQuery plugin rendering a button with the amount of Bitcoins. Inspired by the Twitter tweat button and the mockups of paraipan (https://github.com/paraipan).
+A simple jQuery plugin rendering a button with the amount of Bitcoins. Inspired by the Twitter tweat button and the mockups of [paraipan](https://github.com/paraipan).
 
 
 Copyright 2012 Lukasz Gradzki
 
 Dual licensed under the MIT or GPL Version 2 licenses
+
+
+## Sample Screenshot ##
+![Demo](https://github.com/lgr/jquery-bitcoin/raw/master/demo.png)
+
 
 
 ## Usage ##
@@ -49,7 +54,7 @@ That's it! If you're lucky, the plugin will work and the "my_dropdown_menu" elem
 
 ## Options ##
 
-* The list of the possible options:
+**The list of the possible options:**
 
 `amount` - an amount that is displayed by the counter. By default it's '0.00' and the units ('BTC') are added automatically.
 
@@ -76,14 +81,14 @@ css: {
 
 `lang` - language of the button's sublabel. Possible values: 'en' (default), 'es', 'pl'.
 
-** Events:
+**Events:**
 
 `onclick` - the event that is called when the button is clicked. 
 
 
 ## Methods ##
 
-* The plugin offers the folowing simple methods:
+**The plugin offers the folowing simple methods:**
 
 `get_default_settings` - returns the object with default settings.
 
@@ -113,6 +118,3 @@ var value = $('#my_bitcoin_button').BitcoinButton('getAmount');
 var value = $('#my_bitcoin_button').BitcoinButton('setAmount', '30 mBTC');
 ```
 
-
-## Sample Screenshot ##
-![Demo](https://github.com/lgr/jquery-bitcoin/raw/master/demo.png)
