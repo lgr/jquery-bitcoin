@@ -18,7 +18,7 @@ Dual licensed under the MIT or GPL Version 2 licenses
 * Include required libs and CSS files:
 
 ```html
-<link href="res/jquery.bitcoinwidget.min.css" rel="stylesheet" type="text/css"/>
+<link href="res/jquery.bitcoinwidget.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.bitcoinwidget.min.js"></script>
 
