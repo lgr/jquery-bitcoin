@@ -31,7 +31,7 @@
 			}
 		},
 		lang: 'en',
-		onclick: function() {}
+		onclick: function(e) {console.log(e);}
  	};
 	var methods = {
 	    _update_amount: function(element, val) {
@@ -60,8 +60,9 @@
     			    settings._button_element = $('<div></div>')
     			                               .addClass('button element')
     			                               .css(settings.css.button)
-    			                               .click(function(){
-    			                                   settings.onclick.call(this);
+    			                               .click(function(e){
+    			                                   settings.onclick
+    			                                                .call(this, e);
     			                               });
     			    if(settings.bitcoin_icon){
     			        var icon = $('<div></div>').addClass('icon');
