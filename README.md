@@ -85,6 +85,8 @@ css: {
 
 `onclick` - the event that is called when the button is clicked. 
 
+`onload` - the event that is called when the button is fully rendered.
+
 
 ## Methods ##
 

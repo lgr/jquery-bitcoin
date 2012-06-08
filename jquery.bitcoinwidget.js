@@ -31,7 +31,8 @@
 			}
 		},
 		lang: 'en',
-		onclick: function(e) {console.log(e);}
+		onclick: function(e) {},
+		onload: function(e) {}
  	};
 	var methods = {
 	    _update_amount: function(element, val) {
@@ -97,6 +98,7 @@
                     }
                 }
     			$this.data('BitcoinButton', settings);
+    			$this.ready(function(e){ settings.onload.call(this, e); });
        		});
        		return this;
        	},
